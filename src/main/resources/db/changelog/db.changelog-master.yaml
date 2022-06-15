@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1655213857077-1
+      id: 1655290865723-1
       author: 79155 (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -9,7 +9,28 @@ databaseChangeLog:
             sequenceName: hibernate_sequence
             startValue: 1
   - changeSet:
-      id: 1655213857077-2
+      id: 1655290865723-2
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_author
+                  name: author_id
+                  type: BIGINT
+              - column:
+                  name: full_name
+                  type: VARCHAR(255)
+              - column:
+                  name: book
+                  type: VARCHAR(255)
+            tableName: author
+  - changeSet:
+      id: 1655290865723-3
       author: 79155 (generated)
       objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
       changes:
@@ -20,8 +41,8 @@ databaseChangeLog:
                     nullable: false
                     primaryKey: true
                     primaryKeyName: pk_book
-                  name: id
-                  type: INT
+                  name: book_id
+                  type: BIGINT
               - column:
                   name: name
                   type: VARCHAR(255)
@@ -32,4 +53,44 @@ databaseChangeLog:
                   name: review
                   type: VARCHAR(255)
             tableName: book
+  - changeSet:
+      id: 1655290865723-4
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: author_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: book_id
+                  type: BIGINT
+            tableName: book_author
+  - changeSet:
+      id: 1655290865723-5
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: author_id
+            baseTableName: book_author
+            constraintName: fk_booaut_on_author
+            referencedColumnNames: author_id
+            referencedTableName: author
+  - changeSet:
+      id: 1655290865723-6
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: book_author
+            constraintName: fk_booaut_on_book
+            referencedColumnNames: book_id
+            referencedTableName: book
 

@@ -28,6 +28,4 @@ public class Author {
             inverseJoinColumns=@JoinColumn(name="book_id"))
     private List<Book> books;
 
-
-
 }
