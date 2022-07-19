@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1655733040617-1
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: book
+            tableName: author
+

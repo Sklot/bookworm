@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1658255616372-1
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_audit
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: source
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+            tableName: audit
+  - changeSet:
+      id: 1658255616372-2
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: book
+            tableName: author
+

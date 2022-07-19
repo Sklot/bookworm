@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1655724299248-1
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: genre
+                  type: VARCHAR(255)
+            tableName: book
+  - changeSet:
+      id: 1655724299248-2
+      author: 79155 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: author
+            tableName: book
+
